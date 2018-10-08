@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content = "height = 300, width = 640, user-scalable = no, initial-scale=.62,maximum-scale=1" /> 
+    <link rel="stylesheet" href="style.css" /> 
+    <title>PiCar</title>
+    <script type="text/javascript" src="/keypress.js"></script>
+    <script type="text/javascript" src="/webiopi.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript">
+        function init() {
+        }
+
+        function Stop() {
+                webiopi().callMacro("stop");
+                //alert("STOPPED")
+        }
+
+        function Forward() {
+                webiopi().callMacro("forward");
+        }
+
+
+        function Reverse() {
+               webiopi().callMacro("backward");
+        }
+
+        function TurnLeft() {
+               webiopi().callMacro("left");
+        }
+
+        function TurnRight() {
+               webiopi().callMacro("right");
+        }
+
+        function one() {
+                webiopi().callMacro("speed1");
+        }
+        function two() {
+                webiopi().callMacro("speed2");
+        }
+        function three() {
+                webiopi().callMacro("speed3");
+        }
+        function four() {
+                webiopi().callMacro("speed4");
+        }
+        function five() {
+                webiopi().callMacro("speed5");
+        }
+        function six() {
+                webiopi().callMacro("speed6");
+        }
+        function seven() {
+                webiopi().callMacro("speed7");
+        }
+        function eight() {
+                webiopi().callMacro("speed8");
+        }
+        function nine() {
+                webiopi().callMacro("speed9");
+        }
+        function zero() {
+                webiopi().callMacro("speed0");
+        }
+
+        
+webiopi().ready(init);
+
+        document.addEventListener('keydown', (event) => {
+          const keyName = event.key;
+          if(event.key == " "){Stop()}
+          if(event.key == "w"){Forward()}
+          if(event.key == "a"){TurnLeft()}
+          if(event.key == "s"){Reverse()}
+          if(event.key == "d"){TurnRight()}
+          if(event.key == "1"){one()}
+          if(event.key == "2"){two()}
+          if(event.key == "3"){three()}
+          if(event.key == "4"){four()}
+          if(event.key == "5"){five()}
+          if(event.key == "6"){six()}
+          if(event.key == "7"){seven()}
+          if(event.key == "8"){eight()}
+          if(event.key == "9"){nine()}
+          if(event.key == "0"){zero()}
+
+          console.log('keydown event\n\n' + 'key: ' + keyName);
+        });
+        document.addEventListener('keyup', (event) => {
+          const keyName = event.key;
+          if(event.key){Stop()}
+          console.log('keyup event\n\n' + 'key: ' + keyName);
+        });
+
+  </script>
+    <style  type="text/css">
+        button.small {
+            margin: 1px 1px 1px 1px;
+            width: 24px;
+            height: 24px;
+            font-size: 12pt;
+            font-weight: bold;
+            color: black;
+        }
+
+        button   {
+            margin: 1px 1px 1px 1px;
+            width: 120px;
+            height: 36px;
+            font-size: 12pt;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+
+
+</head>
+<body>
+
+			<div tabindex="0" align="center"><br/>
+				<img id="video" width="640" height="400" src="http://192.168.1.232:8080/?action=stream"><br/><br/>
+			</div>
+
+	<div id="commandes" align="center">
+						<tr><td colspan=3 align="center"><button class="long" type="button" ontouchend="Stop()"  ontouchstart="Forward()"onmousedown="Forward()" onmouseup="Stop()">FORWARD</button></td></tr><br/>						               
+                    <button type="button" ontouchend="Stop()" ontouchstart="TurnLeft()" onmousedown="TurnLeft()" onmouseup="Stop()">LEFT</button></td>
+                    <button type="button" ontouchstart="Stop()" onclick="Stop()">STOP</button></td>
+                    <button type="button" ontouchend="Stop()" ontouchstart="TurnRight()" onmousedown="TurnRight()" onmouseup="Stop()">RIGHT</button></td></tr><br/>
+                    <button type="button" ontouchend="Stop()" ontouchstart="Reverse()" onmousedown="Reverse()" onmouseup="Stop()">REVERSE</button></td></tr>
+                    <br/>
+    </div>
+</body>
+</html>
